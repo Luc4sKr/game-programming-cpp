@@ -1,6 +1,2 @@
-﻿  Engine.cpp
-  Game.cpp
-  Window.cpp
-  WinGame.cpp
-  Generating Code...
+﻿  WinGame.cpp
   WindowGame.vcxproj -> C:\Projetos\game-programming-cpp\Lab05\WindowGame\x64\Debug\WindowGame.exe

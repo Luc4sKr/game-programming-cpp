@@ -19,9 +19,10 @@ using std::stringstream;
 class WinGame : public Game
 {
 private:
-	stringstream textSize;
-	stringstream textMode;
-	stringstream textMouse;
+	HDC hdc;
+	int lineXinitial, lineXfinal, lineYinitial, lineYfinal;
+	int velXi, velYi;
+	int velXf, velYf;
 
 public:
 	void Init();
@@ -34,8 +35,17 @@ public:
 
 void WinGame::Init() 
 {
-	textSize << "Tamanho: " << window->Width() << " x " << window->Height();
-	textMode << "Formato: " << (window->Mode() == WINDOWED ? "Em Janela" : "Tela Cheia"); 
+	hdc = GetDC(window->Id());
+
+	lineXinitial = 10;
+	lineYinitial = 10;
+	lineXfinal = 100;
+	lineYfinal = 100;
+
+	velXi = 10;
+	velXf = 7;
+	velYi = 11;
+	velYf = 8;
 }
 
 // ------------------------------------------------------------------------------
@@ -45,24 +55,68 @@ void WinGame::Update()
 	if (window->KeyDown(VK_ESCAPE))
 		window->Close();
 
-	textMouse.str("");
-	textMouse << window->MouseX() << " x " << window->MouseY();
+	lineXinitial += velXi;
+	lineYinitial += velYi;
+	lineXfinal += velXf;
+	lineYfinal += velYf;
+
+	// Init
+	if (lineXinitial > window->Width())
+	{
+		velXi = -velXi;
+	}
+
+	if (lineYinitial > window->Height())
+	{
+		velYi = -velYi;
+	}
+
+	if (lineXinitial < 0)
+	{
+		velXi = -velXi;
+	}
+
+	if (lineYinitial < 0)
+	{
+		velYi = -velYi;
+	}
+
+	// Final
+	if (lineXfinal > window->Width())
+	{
+		velXf = -velXf;
+	}
+
+	if (lineYfinal > window->Height())
+	{
+		velYf = -velYf;
+	}
+
+	if (lineXfinal < 0)
+	{
+		velXf = -velXf;
+	}
+
+	if (lineYfinal < 0)
+	{
+		velYf = -velYf;
+	}
+
+	MoveToEx(hdc, lineXinitial, lineYinitial, NULL);
 } 
 
 // ------------------------------------------------------------------------------
 
 void WinGame::Draw()
 {	
-	window->Print("Window Game Demo", 10, 10, RGB(0,0,0));
-	window->Print(textSize.str(), 10, 50, RGB(0,0,0)); 
-	window->Print(textMode.str(), 10, 70, RGB(0,0,0)); 
-	window->Print(textMouse.str(), 10, 90, RGB(0, 0, 0));
+	LineTo(hdc, lineXfinal, lineYfinal);
 } 
 
 // ------------------------------------------------------------------------------
 
 void WinGame::Finalize()
 {
+	ReleaseDC(window->Id(), hdc);
 }	
 
 
