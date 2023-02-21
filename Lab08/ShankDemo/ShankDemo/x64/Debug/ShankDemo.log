@@ -1,0 +1,16 @@
+﻿  compilation object save succeeded; see C:\Projetos\game-programming-cpp\Lab08\ShankDemo\ShankDemo\Shaders\Pixel.cso
+  compilation object save succeeded; see C:\Projetos\game-programming-cpp\Lab08\ShankDemo\ShankDemo\Shaders\Vertex.cso
+  Engine.cpp
+  Game.cpp
+  Graphics.cpp
+  Image.cpp
+  Object.cpp
+  Renderer.cpp
+  Shank.cpp
+  ShankDemo.cpp
+  Sprite.cpp
+  Texture.cpp
+  Timer.cpp
+  Window.cpp
+  Generating Code...
+  ShankDemo.vcxproj -> C:\Projetos\game-programming-cpp\Lab08\ShankDemo\x64\Debug\ShankDemo.exe
