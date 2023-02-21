@@ -1,0 +1,4 @@
+﻿  Player.cpp
+C:\Projetos\game-programming-cpp\Lab09\Breakout\Breakout\Player.cpp(18,22): warning C4129: 'P': unrecognized character escape sequence
+C:\Projetos\game-programming-cpp\Lab09\Breakout\Breakout\Player.cpp(52,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Breakout.vcxproj -> C:\Projetos\game-programming-cpp\Lab09\Breakout\Debug\Breakout.exe
