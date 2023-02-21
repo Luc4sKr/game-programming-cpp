@@ -1,0 +1,8 @@
+﻿  Engine.cpp
+  FPSCounter.cpp
+  Game.cpp
+  Graphics.cpp
+  Timer.cpp
+  Window.cpp
+  Generating Code...
+  FPSCounter.vcxproj -> C:\Projetos\game-programming-cpp\Lab07\FPSCounter\x64\Debug\FPSCounter.exe
